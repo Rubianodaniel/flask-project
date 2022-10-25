@@ -1,0 +1,27 @@
+<!-- <nav>
+    <ul>
+        <img src="{{url_for('static', filename='images/gatito.jpg')}}" alt="gatito lindo">
+        <li> <a href="{{url_for("index")}}"> Home</a> </li>
+        <li><a href="https://platzi.com"> platzi.com</a></li>
+    </ul>
+</nav>-->
+
+<nav class="navbar">
+    <div>
+    <a class="navbar-brand" href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='images/gatito.jpg') }}"
+             alt="gatito">
+    </a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="https://platzi.com">Platzi.com</a>
+        </li>
+        
+    </div>
+</nav>
+
