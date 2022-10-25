@@ -8,6 +8,7 @@ from flask_bootstrap import Bootstrap
 import unittest
 from app import create_app
 from app.forms import LoginForm
+
 ## iniciar el servidor con el nombre del archivo
 app = create_app()
 
@@ -37,24 +38,24 @@ def index():
     return response
 
 
-@app.route('/hello',methods = ["GET","POST"])
+@app.route('/hello',methods = ["GET"])
 def hello():
     ##user_ip = request.cookies.get("user_ip")#obtener el valor de la cookie
     user_ip = session.get("user_ip") ## obtener valor de la session
-    login_form = LoginForm()
+    #login_form = LoginForm()
     username = session.get("username")
     context = {
         'user_ip':user_ip,
         'tasks':tasks,
-        'login_form':login_form,
+        #'login_form':login_form,
         "username":username
     }
 
-    if login_form.validate_on_submit():
-        username = login_form.username.data
-        session["username"] = username
-        flash ("user name registered succesfuly")
-        return redirect(url_for('index'))
+    # if login_form.validate_on_submit():
+    #     username = login_form.username.data
+    #     session["username"] = username
+    #     flash ("user name registered succesfuly")
+    #     return redirect(url_for('index'))
     return (render_template("hello.html", **context))
 
 
